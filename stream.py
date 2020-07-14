@@ -1,5 +1,3 @@
-# Import Libraries
-
 import numpy as np
 import cv2
 import time 
@@ -22,17 +20,16 @@ while(cap.isOpened()):
     if not ret:
         break
 
-    hsv=cv2.cvtColor(img, cv2.COLOR_BGR2HSV) # HSV = Huge Saturation Value || 
-
+    hsv=cv2.cvtColor(img, cv2.COLOR_BGR2HSV) 
     #HSV Values for Mask1
     lower_red=np.array([0,120,70])
     upper_red=np.array([10,255,255])
-    mask1=cv2.inRange(hsv, lower_red, upper_red) #Seperating the cloack part1
+    mask1=cv2.inRange(hsv, lower_red, upper_red) 
 
     #HSV Values for Mask2
     lower_red=np.array([170,120,70])
     upper_red=np.array([180,255,255])
-    mask2=cv2.inRange(hsv, lower_red, upper_red) #Seperating the cloack part2
+    mask2=cv2.inRange(hsv, lower_red, upper_red) 
 
 
     mask1=mask1+mask2 
